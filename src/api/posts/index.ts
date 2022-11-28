@@ -9,17 +9,29 @@ import { CommentDto } from './models/CommentDto';
 export const fetchPosts = async (): Promise<PostDto[]> => {
   const response = await fetch(posts);
 
-  return response.json();
+  if (response.ok) {
+    return response.json();
+  }
+
+  return [];
 };
 
-export const fetchPost = async (postId: number): Promise<PostDto> => {
+export const fetchPost = async (postId: number): Promise<Nullable<PostDto>> => {
   const response = await fetch(post(postId));
 
-  return response.json();
+  if (response.ok) {
+    return response.json();
+  }
+
+  return null;
 };
 
 export const fetchPostComments = async (postId: number): Promise<CommentDto[]> => {
   const response = await fetch(postComments(postId));
 
-  return response.json();
+  if (response.ok) {
+    return response.json();
+  }
+
+  return [];
 };

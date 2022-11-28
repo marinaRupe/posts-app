@@ -42,7 +42,14 @@ const PostDetailsPage: React.FC<Props> = React.memo<Props>(() => {
 
     const fetchPostDetails = async () => {
       const postDetails = await fetchPost(parseInt(postId));
-      const user = await fetchUser(postDetails.userId);
+
+      if (!postDetails) {
+        setPost(null);
+
+        return;
+      }
+
+      const user = await fetchUser(postDetails.userId) ?? undefined;
 
       if (ignore === true) return;
       setPost({
@@ -76,7 +83,11 @@ const PostDetailsPage: React.FC<Props> = React.memo<Props>(() => {
     </Comment>
   );
 
-  if (!post) return null;
+  if (!post) {
+    return (
+      <div>Post not found</div>
+    );
+  }
 
   return (
     <div>
