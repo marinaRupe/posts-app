@@ -1,0 +1,13 @@
+.posts-list-page {
+  &__search-input-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $val-spacing-m;
+  }
+
+  &__posts-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: $val-spacing-l;
+  }
+}

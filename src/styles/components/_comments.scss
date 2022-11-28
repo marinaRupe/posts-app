@@ -1,0 +1,25 @@
+.comment {
+  font-size: $val-fontSizeRegular;
+  box-shadow: $val-box-shadow;
+  border-radius: 5px;
+  padding: $val-spacing-xs $val-spacing-l;
+  background-color: $color-white;
+  width: fit-content;
+
+  &:not(:first-child) {
+    margin-top: $val-spacing-s;
+  }
+
+  &__title {
+    color: $color-normalText--dark;
+    font-size: $val-fontSizeNormal;
+  }
+
+  &__content {
+    font-size: $val-fontSizeRegular;
+  }
+}
+
+.comments-list {
+  padding-left: $val-spacing-m;
+}
