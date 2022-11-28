@@ -4,6 +4,7 @@ import {
 } from 'react';
 
 interface PostContextValue {
+  postId: number;
   clickable: boolean;
 }
 

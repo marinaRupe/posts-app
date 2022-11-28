@@ -12,6 +12,7 @@ interface OwnProps extends LoggerProps {
   customListItemClass?: string;
   onClickOnComment?: (postId: number) => void;
   isExpanded?: boolean;
+  dataTestId?: string;
 }
 
 type Props = OwnProps;
@@ -20,6 +21,7 @@ const CommentsList: React.FC<Props> = React.memo<Props>(({
   children,
   className = '',
   isExpanded = true,
+  dataTestId = 'comments-list',
 }) => {
   const value = useMemo(() => ({ isExpanded }), [isExpanded]);
 
@@ -27,7 +29,12 @@ const CommentsList: React.FC<Props> = React.memo<Props>(({
     <CommentListContext.Provider value={value}>
       {
         isExpanded &&
-        <div className={`comments-list ${className}`}>{children}</div>
+        <div
+          className={`comments-list ${className}`}
+          data-test-id={dataTestId}
+        >
+          {children}
+        </div>
       }
     </CommentListContext.Provider>
   );

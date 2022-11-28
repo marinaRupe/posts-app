@@ -21,6 +21,7 @@ interface OwnProps extends LoggerProps {
 	children: ReactNode;
   className?: string;
   onClick?: (commentId: number) => void;
+  dataTestId?: string;
 }
 
 type Props = OwnProps;
@@ -30,6 +31,7 @@ const Comment: React.FC<Props> = React.memo<Props>(({
   commentId,
   className = '',
   onClick,
+  dataTestId = 'comment',
 }) => {
   useCommentListContext();
 
@@ -44,6 +46,7 @@ const Comment: React.FC<Props> = React.memo<Props>(({
     <CommentContext.Provider value={{}}>
       <div
         className={`comment ${className}`}
+        data-test-id={dataTestId}
         onClick={handleClick}
       >
         {children}

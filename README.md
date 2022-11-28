@@ -2,8 +2,10 @@
 1. Run `yarn install`
 2. Create `.env` file (check `.env-sample` for environment variables)
 3. Run `yarn start`
+4. Open `http://localhost:3000` to view the app
 
-- Approximate time needed to finish the assignment: ~7h
+- Approximate time needed to finish the assignment: ~7.5h
+- Approximate time needed for adding tests: ~1.5h
 
 
 # Getting Started with Create React App
@@ -36,3 +38,7 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn run playright:test`
+
+Run Playwright tests.

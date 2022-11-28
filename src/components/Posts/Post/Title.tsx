@@ -17,7 +17,12 @@ const Title: React.FC<Props> = React.memo<Props>(({
   const context = usePostContext();
 
   return (
-    <h2 className={`post__title ${context?.clickable ? 'post__title--clickable' : ''} ${className}`}>{children}</h2>
+    <h2
+      className={`post__title ${context?.clickable ? 'post__title--clickable' : ''} ${className}`}
+      data-test-id={'post-title'}
+    >
+      {children}
+    </h2>
   );
 });
 

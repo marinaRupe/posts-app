@@ -24,7 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "node_modules/.bin/eslint --config .eslintrc --ext .js,.jsx,.ts,.tsx src --quiet",
-    "lint:fix": "node_modules/.bin/eslint --config .eslintrc --ext .js,.jsx,.ts,.tsx src --quiet --fix"
+    "lint:fix": "node_modules/.bin/eslint --config .eslintrc --ext .js,.jsx,.ts,.tsx src --quiet --fix",
+    "playwright:test": "playwright test"
   },
   "eslintConfig": {
     "extends": [

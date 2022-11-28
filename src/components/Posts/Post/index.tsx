@@ -19,6 +19,7 @@ interface OwnProps extends LoggerProps {
 	children: ReactNode;
   className?: string;
   onClick?: (postId: number) => void;
+  dataTestId?: string;
 }
 
 type Props = OwnProps;
@@ -27,6 +28,7 @@ const Post: React.FC<Props> = React.memo(({
   postId,
   children,
   className = '',
+  dataTestId = 'post',
   onClick,
 }) => {
   const handleClick = useCallback(() => {
@@ -37,12 +39,19 @@ const Post: React.FC<Props> = React.memo(({
   ]);
 
   const clickable: boolean = onClick !== undefined;
-  const value = useMemo(() => ({ clickable }), [clickable]);
+  const value = useMemo(() => ({
+    postId,
+    clickable,
+  }), [
+    postId,
+    clickable,
+  ]);
 
   return (
     <PostContext.Provider value={value}>
       <div
         className={`post ${clickable ? 'post--clickable' : ''} ${className}`}
+        data-test-id={dataTestId}
         onClick={handleClick}
       >
         {children}

@@ -9,6 +9,7 @@ interface OwnProps extends LoggerProps {
   onClickOnPost?: (postId: number) => void;
   className?: string;
   customListItemClass?: string;
+  dataTestId?: string;
 }
 
 type Props = OwnProps;
@@ -18,6 +19,7 @@ const PostsList: React.FC<Props> = React.memo<Props>(({
   onClickOnPost,
   className = '',
   customListItemClass = '',
+  dataTestId = 'posts-list',
 }) => {
   const renderPost = (post: PostItem) => (
     <Post
@@ -33,7 +35,12 @@ const PostsList: React.FC<Props> = React.memo<Props>(({
   );
 
   return (
-    <div className={className}>{posts.map(renderPost)}</div>
+    <div
+      className={className}
+      data-test-id={dataTestId}
+    >
+      {posts.map(renderPost)}
+    </div>
   );
 });
 
