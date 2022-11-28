@@ -68,16 +68,14 @@ const PostsListPage: React.FC<Props> = React.memo<Props>(() => {
     };
   }, []);
 
-  const filterPostsByUserName = useCallback((userName: string) => {
+  const handleSearchInputChange = useCallback((searchInputValue: string) => {
+    const userName = searchInputValue;
+
     dispatch({
       type: PostActionTypes.FilterPosts,
       payload: userName,
     });
   }, []);
-
-  const handleSearchInputChange = useCallback((searchInputValue: string) => {
-    filterPostsByUserName(searchInputValue);
-  }, [filterPostsByUserName]);
 
   const handleClickOnPost = useCallback((postId: number) => {
     navigate(postDetails(postId));

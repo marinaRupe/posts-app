@@ -16,6 +16,16 @@ import withLogger, { LoggerProps } from '../../../components/hoc/withLogger';
 import Post from '../../../components/Posts/Post';
 import Comment from '../../../components/Comments/Comment';
 
+const renderComment = (comment: CommentDto) => (
+  <Comment
+    key={comment.id}
+    commentId={comment.id}
+  >
+    <Comment.Title>{comment.name}</Comment.Title>
+    <Comment.Content>{comment.body}</Comment.Content>
+  </Comment>
+);
+
 type Props = LoggerProps;
 
 const PostDetailsPage: React.FC<Props> = React.memo<Props>(() => {
@@ -72,16 +82,6 @@ const PostDetailsPage: React.FC<Props> = React.memo<Props>(() => {
       ignore = true;
     };
   }, [postId]);
-
-  const renderComment = (comment: CommentDto) => (
-    <Comment
-      key={comment.id}
-      commentId={comment.id}
-    >
-      <Comment.Title>{comment.name}</Comment.Title>
-      <Comment.Content>{comment.body}</Comment.Content>
-    </Comment>
-  );
 
   if (!post) {
     return (
